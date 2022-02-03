@@ -16,6 +16,9 @@ mongoose.connect(dbUrl).catch(err => console.log(err))
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use('/', (req, res) => {
+    res.status(200).send('Welcome to REST API app build with Express and MongoDB Atlas!')
+})
 app.use('/api/barang', routesBarang)
 
 app.listen(port, () => {
